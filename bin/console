@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 require "bundler/setup"
-require "tw_ontology"
-puts "TwOntology #{TwOntology::VERSION}"
+require "hookkaido"
+puts "Hookkaido #{Hookkaido::VERSION}"
 require "irb"; IRB.start(__FILE__)

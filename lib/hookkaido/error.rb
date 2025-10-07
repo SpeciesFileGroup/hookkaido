@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module TwOntology
+module Hookkaido
   class Error < StandardError; end
   class BadRequest < Error; end
   class NotFound < Error; end

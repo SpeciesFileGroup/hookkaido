@@ -76,13 +76,15 @@ a.first
 
 ### Pagination
 
-For pagination, use the `page` and `per` parameters:
+For pagination in `search`, use the `page` and `per` parameters:
 ```ruby
 h = Hookkaido.search('head', per: 50, page: 1)
 
 [h[:page], h[:per], h[:total]]
 => [1, 50, 143]
 ```
+
+The `ontologies` endpoint isn't paged - at time of writing it will return ~285 ontologies.
 
 ---
 

@@ -8,7 +8,7 @@ module Hookkaido
       def self.ontologies(verbose:, timeout:)
         json = Hookkaido::Request
           .new(url: BASE, verbose: verbose, timeout: timeout)
-          .perform('ontologies', params: {}, method: :get)
+          .perform('ontologies', params: { size: 500 }, method: :get)
 
         arr = []
         if json.is_a?(Hash)

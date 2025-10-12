@@ -17,7 +17,10 @@ module Hookkaido
     Sources::OLS.ontologies(verbose: verbose, timeout: timeout)
   end
 
-  # Search with combined totals (no per-ontology counts)
+  # Search OLS for terms in specific ontologies matching a user-provided term.
+  # @!param term [String] search string that returned ontology terms should
+  #   match in some way
+  # @!param ontologies
   # Return: { results:, page:, per:, total: }
   def self.search(term, ontologies: [], per: 25, page: 1, verbose: false)
     raise ArgumentError, 'term cannot be blank' if term.to_s.strip.empty?
@@ -51,9 +54,9 @@ module Hookkaido
     results = payload[:results] || []
     total   = payload[:total].to_i
 
-    # De-duplicate by URI
+    # De-duplicate by IRI
     uniq = {}
-    results.each { |r| uniq[r[:uri]] ||= r if r[:uri] }
+    results.each { |r| uniq[r[:iri]] ||= r if r[:iri] }
 
     {
       results: uniq.values,

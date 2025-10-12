@@ -41,7 +41,7 @@ module Hookkaido
           type: 'class',
           ontology: onts.join(','), # multi-ontology in one call
           queryFields: 'label,synonym',
-          fieldList: 'iri,label,description,ontology_name',
+          fieldList: 'iri,label,description,ontology_prefix',
           rows: rows,
           start: start
         }
@@ -59,22 +59,20 @@ module Hookkaido
       end
 
       def self.normalize_doc(doc)
-        iri = doc['iri'] || doc['iri_s']
+        iri = doc['iri']
         return nil unless iri
 
         label = doc['label']
         label = label.first if label.is_a?(Array)
 
-        desc = doc['description']
-        desc = desc.first if desc.is_a?(Array)
-
-        src = doc['ontology_name'].to_s.downcase
+        description = doc['description']
+        description = description.first if description.is_a?(Array)
 
         {
-          uri: iri,
-          uri_label: label,
-          source: src,
-          description: desc
+          iri: iri,
+          label:,
+          ontology_prefix: doc['ontology_prefix'],
+          description:
         }
       end
       private_class_method :normalize_doc

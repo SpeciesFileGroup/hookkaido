@@ -30,7 +30,7 @@ h.keys
 h[:total]
 => 32
 h[:results].first
-=> {uri: "http://purl.obolibrary.org/obo/UBERON_0015052", uri_label: "femur endochondral element", source: "uberon", description: "A femur bone or its cartilage or pre-cartilage precursor."}
+=> {iri: "http://purl.obolibrary.org/obo/UBERON_0015052", label: "femur endochondral element", ontology_prefix: "uberon", description: "A femur bone or its cartilage or pre-cartilage precursor."}
 ```
 
 Uberon aggregates results from many ontologies; you're likely to get more targeted results by specifying an ontology more specific to your use case, such as HAO (Hymenopteran Anatomy Ontology) for example:
@@ -38,7 +38,7 @@ Uberon aggregates results from many ontologies; you're likely to get more target
 h = Hookkaido.search('femur', ontologies: 'hao')
 h[:total]
 => 10
-h[:results].map{ |r| [r[:uri_label], r[:description], r[:uri]] }
+h[:results].map{ |r| [r[:label], r[:description], r[:iri]] }
 => 
 [["mesofemur", "The femur that is located on the mid leg.", "http://purl.obolibrary.org/obo/HAO_0001131"],
  ["metafemur", "The femur that is located on the hind leg.", "http://purl.obolibrary.org/obo/HAO_0001140"],

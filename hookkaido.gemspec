@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Look up ontology terms across selected OLS ontologies."
   spec.homepage      = "https://github.com/SpeciesFileGroup/hookkaido"
   spec.license       = "MIT"
+  spec.required_ruby_version = ">= 2.5.0"
 
   spec.files         = Dir["lib/**/*", "README.md", "LICENSE.txt"]
   spec.require_paths = ["lib"]
@@ -20,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/SpeciesFileGroup/hookkaido"
   spec.metadata["rubygems_mfa_required"] = "false"
 
-  spec.add_dependency "faraday", ">= 1.10", "< 3"
-  spec.add_dependency "faraday-follow_redirects", ">= 0.3"
-  spec.add_dependency "multi_json", ">= 1.15"
+  spec.add_dependency "faraday", "~> 2.2"
+  spec.add_dependency "faraday-follow_redirects", ">= 0.1", "< 0.4"
+  spec.add_dependency "multi_json", "~> 1.15"
 end

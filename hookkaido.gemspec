@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr", "~> 6.0"
   spec.add_development_dependency "webmock", "~> 3.18"
   spec.add_development_dependency "rexml", "~> 3.3", ">= 3.3.6"
+  spec.add_development_dependency "irb", "~> 1.0"
 end
